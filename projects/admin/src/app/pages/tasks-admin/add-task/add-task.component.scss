@@ -1,0 +1,47 @@
+::ng-deep .p-dropdown {
+  width: 100%;
+  box-shadow: none;
+  .p-dropdown-label{
+    padding: .5rem;
+  }
+  .p-dropdown-items {
+    padding: 0;
+    list-style: none;
+    margin-bottom: 0;
+  }
+}
+::ng-deep {
+  .p-calendar {
+    width: 100%;
+    .p-inputtext {
+      padding: .5rem;
+    }
+  }
+  .p-datepicker {
+    font-size: 0.8rem;
+    padding: .5rem;
+    .p-datepicker-header {
+      padding: 0;
+    }
+  }
+  
+  .p-datepicker table td {
+    padding: 0;
+    span {
+      height: 1.7rem;
+      width: 1.7rem;
+    }
+  }
+  
+  .p-datepicker table th {
+    text-align: center;
+    padding: 0;
+  }
+}
+
+::ng-deep {
+  .p-button {
+    padding: .5rem;
+    width: 100%;
+  }
+}

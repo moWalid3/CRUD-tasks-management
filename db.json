@@ -1,0 +1,43 @@
+{
+  "tasks": [
+    {
+      "id": "b3a5",
+      "title": "afsdf",
+      "userId": "rq2b",
+      "deadline": "2024-07-16T21:00:00.000Z",
+      "image": "t4.jpg",
+      "description": "asdfsdfa"
+    }
+  ],
+  "user": [],
+  "auth": [
+    {
+      "id": "1",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "role": "admin"
+    },
+    {
+      "id": "a2d2",
+      "username": "Khalid",
+      "email": "khalid@gmail.com",
+      "password": "khalid",
+      "role": "user"
+    },
+    {
+      "id": "rq2b",
+      "username": "Ahmed",
+      "email": "ahmed@gmail.com",
+      "password": "ahmed",
+      "role": "user"
+    },
+    {
+      "id": "t27b",
+      "username": "sara",
+      "email": "sara@gmail.com",
+      "password": "sara",
+      "role": "user"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+<button (click)="visible.set(true)" class="btn btn-main-dark fs-5 ms-auto d-block fw-medium px-4">Add Task</button>
+
+<app-add-task [(visible)]="visible" (closeDialog)="visible.set(false)" />
+

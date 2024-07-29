@@ -1,0 +1,33 @@
+<p-dialog header="Add New Task" [modal]="true" [(visible)]="visible" [draggable]="false" [resizable]="false"
+  [breakpoints]="{ '35rem' : '90vw' }" [style]="{ width: '35rem'}" (onHide)="onClose()"
+>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+
+    <p class="mt-2">
+      <input pInputText formControlName="title" id="title" class="w-100 p-2" autocomplete="off" placeholder="Title"/>
+    </p>
+    
+    <p>
+      <p-dropdown [options]="users()" formControlName="userId" optionValue="id" optionLabel="username" placeholder="Select User" />
+    </p>
+    
+    <p>
+      <p-calendar placeholder="Deadline Date" formControlName="deadline"  [iconDisplay]="'input'" [showIcon]="true"  />
+    </p>
+    
+    <p>
+      <p-fileUpload #fileUpload name="myfile[]" url="./upload.php" [customUpload]="true" chooseLabel="Select Image" [auto]="true"
+        (uploadHandler)="onUpload($event)" (onRemove)="onRemoveImage($event)"
+      ></p-fileUpload>
+    </p>
+    
+    <p>
+      <textarea formControlName="description" rows="4"  pInputTextarea class="w-100" placeholder="Description"></textarea>
+    </p>
+
+    <div class="d-flex gap-1">
+      <button  class="btn btn-secondary" type="reset" (click)="onClose()" >Cancel</button>
+      <button class="btn btn-main-dark flex-grow-1" [disabled]="taskForm.invalid" type="submit" >Add</button>
+    </div>
+  </form>
+</p-dialog>

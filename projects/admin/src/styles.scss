@@ -1,0 +1,120 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$main: #F97316;
+$main-dark: #EA580C;
+$alt: #161C28;
+$transition: .2s;
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+@mixin btn($color) {
+  background-color: $color !important;
+  color: if(lightness($color) > 50%, black, white) !important;
+  transition: $transition;
+  &:hover{
+    background-color: darken($color, 10%) !important;
+  }
+  &:active {
+    border-color: white !important;
+  }
+}
+
+$colors: (
+  'main': $main,
+  'main-dark': $main-dark,
+  'alt': $alt,
+);
+
+@each $name, $color in $colors {
+  .btn-#{$name} {
+    @include btn($color);
+  }
+  
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+
+  .text-#{$name} {
+    color: $color !important;
+  }
+}
+
+.transition {
+  transition: $transition;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// .custom-form-control {
+//   display: block;
+//   width: 100%;
+//   padding: 0.375rem 0.75rem;
+//   font-size: 1rem;
+//   font-weight: 400;
+//   line-height: 1.5;
+//   color: #212529;
+//   background-color: #fff;
+//   background-clip: padding-box;
+//   border: 1px solid $main;
+//   border-radius: 0.25rem;
+//   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+//   &:focus {
+//     color: #212529;
+//     background-color: #fff;
+//     border-color: lighten($main, 25%);
+//     outline: 0;
+//     box-shadow: 0 0 0 0.15rem rgba($main, 0.25);
+//   }
+
+//   &:hover {
+//     border-color: darken($main, 10%);
+//   }
+// }
+
+// .form-control {
+//   border-color: $main;
+//   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+//   &:focus {
+//     border-color: lighten($main, 25%);
+//     box-shadow: 0 0 0 0.15rem rgba($main, 0.25);
+//   }
+
+//   &:hover {
+//     border-color: darken($main, 10%);
+//   }
+// }
+
+a {
+  text-decoration: none;
+}
+
+
+.p-fileupload {
+  .p-fileupload-buttonbar {
+    padding: 0 !important;
+    border: none;
+    background-color: white;
+  }
+  .p-fileupload-content {
+    padding: 0;
+    border: none;
+    .p-button {
+      width: 2rem;
+      height: 2rem;
+    }
+    .p-progressbar {
+      display: none;
+    }
+  }
+}
+  
+input, textarea {
+  box-shadow: none;
+}
