@@ -16,6 +16,19 @@
           <a class="nav-link bg-alt rounded-2 ms-4" (click)="onLogout()" routerLink="/login">Logout</a>
         </li>
       </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tasks" routerLinkActive="bg-dark bg-opacity-25 rounded-2" [routerLinkActiveOptions]="{exact: true}">All Tasks</a>
+        </li>
+        <li class="nav-item">
+          <p-selectButton 
+          [options]="stateOptions" 
+          [(ngModel)]="value" 
+          optionLabel="label" 
+          optionValue="value" />
+        </li>
+
+      </ul>
     </div>
   </div>
 </nav>

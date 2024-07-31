@@ -1,12 +1,52 @@
 {
   "tasks": [
     {
-      "id": "b3a5",
-      "title": "afsdf",
-      "userId": "rq2b",
-      "deadline": "2024-07-16T21:00:00.000Z",
-      "image": "t4.jpg",
-      "description": "asdfsdfa"
+      "id": "1722369947787",
+      "title": "talk with cusomer",
+      "user": {
+        "id": "a2d2",
+        "username": "Khalid",
+        "email": "khalid@gmail.com",
+        "password": "khalid",
+        "status": "Active",
+        "role": "user"
+      },
+      "deadline": "2024-07-30T21:00:00.000Z",
+      "image": "task9.png",
+      "description": "anything",
+      "status": "In-Progress"
+    },
+    {
+      "id": "1722370175861",
+      "title": "finish project updated",
+      "user": {
+        "id": "a2d2",
+        "username": "Khalid",
+        "email": "khalid@gmail.com",
+        "password": "khalid",
+        "status": "Active",
+        "role": "user"
+      },
+      "deadline": "2024-07-24T21:00:00.000Z",
+      "image": "task15.png",
+      "description": "anything here",
+      "status": "In-Progress"
+    },
+    {
+      "id": "1722379555062",
+      "title": "get a new course",
+      "user": {
+        "id": "a2d2",
+        "username": "Khalid",
+        "email": "khalid@gmail.com",
+        "password": "khalid",
+        "status": "Active",
+        "role": "user"
+      },
+      "deadline": "2024-08-14T21:00:00.000Z",
+      "image": "task14.png",
+      "description": "anything",
+      "status": "In-Progress"
     }
   ],
   "user": [],
@@ -15,6 +55,7 @@
       "id": "1",
       "username": "admin",
       "email": "admin@gmail.com",
+      "status": "Active",
       "password": "admin",
       "role": "admin"
     },
@@ -23,6 +64,7 @@
       "username": "Khalid",
       "email": "khalid@gmail.com",
       "password": "khalid",
+      "status": "Active",
       "role": "user"
     },
     {
@@ -30,6 +72,7 @@
       "username": "Ahmed",
       "email": "ahmed@gmail.com",
       "password": "ahmed",
+      "status": "Active",
       "role": "user"
     },
     {
@@ -37,6 +80,7 @@
       "username": "sara",
       "email": "sara@gmail.com",
       "password": "sara",
+      "status": "Active",
       "role": "user"
     }
   ]

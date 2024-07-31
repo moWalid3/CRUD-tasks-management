@@ -1,4 +1,4 @@
-import { Component, inject, model, output, viewChild } from '@angular/core';
+import { Component, inject, input, model, OnChanges, output, signal, viewChild } from '@angular/core';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
@@ -12,7 +12,9 @@ import { Task } from '../../../core/models/task.model';
 import { AuthService } from '../../../core/services/auth.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ToastrService } from 'ngx-toastr';
-
+import { User } from '../../../core/models/auth.model';
+import { ConfirmationService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 @Component({
   selector: 'app-add-task',
   standalone: true,
@@ -25,45 +27,52 @@ import { ToastrService } from 'ngx-toastr';
     InputTextareaModule,
     CalendarModule,
     AddTaskComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ConfirmDialogModule
   ],
+  providers: [ConfirmationService],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss',
 })
-export class AddTaskComponent {
+export class AddTaskComponent implements OnChanges{
   private tasksService = inject(TasksService);
   private authService = inject(AuthService);
   private toaster = inject(ToastrService);
   private fileUpload = viewChild<FileUpload>('fileUpload');
+  taskNeedUpdate = input<Task | null>(null);
   visible = model.required<boolean>();
   closeDialog = output<void>();
   users = toSignal(this.authService.getUsers());
+  updateFormChanges = signal(true);
 
   taskForm = new FormGroup({
-    title: new FormControl(null, [Validators.required]),
-    userId: new FormControl(null, [Validators.required]),
+    title: new FormControl<string | null>( null, [Validators.required]),
+    user: new FormControl<User | null>(null, [Validators.required]),
     deadline: new FormControl<Date | null>(null, [Validators.required]),
-    image: new FormControl<File | null>(null, [Validators.required]),
-    description: new FormControl(null, [Validators.required]),
+    image: new FormControl<string | null>(null, [Validators.required]),
+    description: new FormControl<string | null>(null, [Validators.required]),
   })
+  
+  ngOnChanges(): void {
+    if(this.taskNeedUpdate()) {
+      this.setDataToForm();
+
+      this.isTheUpdateFormChanges();
+    }
+  }
 
   onSubmit() {
-    const task: Task = {
-      title: this.taskForm.value.title!,
-      userId: this.taskForm.value.userId!,
-      deadline: this.taskForm.value.deadline!,
-      image: this.taskForm.value.image?.name!,
-      description: this.taskForm.value.description!,
-    };
+    const task = this.generateTask();
 
     this.tasksService.createTask(task).subscribe({
       next: _ => this.toaster.success("Task added successfully 💯.")
     });
+
     this.onClose();
   }
 
   onUpload(event: FileUploadHandlerEvent) {
-    this.taskForm.controls.image.patchValue(event.files[0]);
+    this.taskForm.controls.image.patchValue(event.files[0].name);
   }
   
   onRemoveImage(event : FileRemoveEvent) {
@@ -74,5 +83,55 @@ export class AddTaskComponent {
     this.closeDialog.emit();
     this.taskForm.reset();
     this.fileUpload()?.clear();
+  }
+
+  onUpdateTask() {
+    const task = this.generateTask();
+
+    this.tasksService.updateTask(task).subscribe({
+      next: _ => this.toaster.success("Task updated successfully ✅.")
+    })
+
+    this.onClose();
+  }
+
+  private generateTask(): Task {
+    return {
+      id: this.taskNeedUpdate() === null ? new Date().getTime().toString() : this.taskNeedUpdate()?.id,
+      title: this.taskForm.value.title!,
+      user: this.taskForm.value.user!,
+      deadline: this.taskForm.value.deadline!,
+      image: this.taskForm.value.image!,
+      description: this.taskForm.value.description!,
+      status: 'In-Progress',
+    }
+  }
+
+  private isTheUpdateFormChanges() {
+    this.taskForm.valueChanges.subscribe({
+      next: values => {
+        if(
+          this.taskNeedUpdate()?.title === values.title
+          && this.taskNeedUpdate()?.description === values.description
+          && this.taskNeedUpdate()?.image === values.image
+          && this.taskNeedUpdate()?.user.id === values.user?.id
+          && new Date(this.taskNeedUpdate()?.deadline!).toISOString() === values.deadline?.toISOString()
+        ) {
+          this.updateFormChanges.set(true);
+        } else {
+          this.updateFormChanges.set(false)
+        }
+      }
+    })
+  }
+
+  setDataToForm() {
+    this.taskForm.patchValue({
+      title: this.taskNeedUpdate()?.title,
+      description: this.taskNeedUpdate()?.description,
+      image: this.taskNeedUpdate()?.image,
+      deadline: new Date(this.taskNeedUpdate()!.deadline),
+      user: this.taskNeedUpdate()?.user!
+    })
   }
 }

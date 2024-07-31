@@ -50,6 +50,13 @@ $colors: (
   cursor: pointer;
 }
 
+.btn {
+  transition: $transition;
+  &:active {
+    border-color: white !important;
+  }
+}
+
 // .custom-form-control {
 //   display: block;
 //   width: 100%;
@@ -95,6 +102,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  padding: 0;
+  margin-bottom: 0;
+}
 
 .p-fileupload {
   .p-fileupload-buttonbar {
@@ -117,4 +128,29 @@ a {
   
 input, textarea {
   box-shadow: none;
+  padding: .5rem;
+}
+
+::-webkit-scrollbar {
+  width: 8px; 
+  height: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #eee; 
+  border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $main; 
+  border-radius: 10px; 
+  border: 2px solid #eee; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: darken($main, 10%); 
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: lighten($main, 10%); 
 }

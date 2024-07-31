@@ -1,0 +1,45 @@
+td, th {
+  padding: .5rem; 
+}
+
+::ng-deep {
+  .p-datatable-thead {
+    tr {
+      &:first-child {
+        th {
+          padding-bottom: 0;
+          padding-left: 0.75rem;
+          padding-top: 1rem;
+        }
+      }
+    }
+  }
+  .p-datatable-header {
+    border: none;
+    background-color: white;
+    padding-left: 0;
+  }
+}
+
+thead {
+  width: 20% !important;
+}
+
+td {
+  img {
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 3px;
+    background-color: #dcd3cc;
+  }
+}
+
+::ng-deep {
+  .p-confirm-popup .p-confirm-popup-footer {
+    display: flex;
+    gap: .5rem;
+    button {
+      padding: .25rem .5rem;
+    }
+  }
+}

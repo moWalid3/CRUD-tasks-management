@@ -1,0 +1,90 @@
+<div class="">
+  <p-table #dt2 [value]="tasks()!" dataKey="id" [rows]="5" [rowsPerPageOptions]="[5, 10, 20]" [paginator]="true" 
+    [globalFilterFields]="['title', 'user.username', 'deadline', 'status']"
+    [tableStyle]="{ 'min-width': '75rem' }"
+    styleClass="p-datatable-striped p-datatable-gridlines"
+  >
+  
+  <ng-template pTemplate="caption">
+    <div class="bg-white">
+      <input pInputText type="text" (input)="onFilterGlobal($event, dt2 )" placeholder="Search keyword" />
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width:15%">Title</th>
+      <th style="width:15%">User</th>
+      <th style="width:15%">Deadline Date</th>
+      <th style="width:5%">Status</th>
+      <th style="width:12%"></th>
+    </tr>
+
+    <tr>
+      <th>
+          <p-columnFilter type="text" field="title" placeholder="Search by title" ariaLabel="Filter Title" />
+      </th>
+
+      <th>
+        <p-columnFilter field="user.username" matchMode="equals" [showMenu]="false">
+          <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+              <p-dropdown [options]="users()!" (onChange)="filter($event.value)" placeholder="Select User" [showClear]="true"
+                optionLabel="username" optionValue="username"
+              >
+                <ng-template let-user pTemplate="item">
+                  <span>{{ user.username }}</span>
+                </ng-template>
+              </p-dropdown>
+          </ng-template>
+        </p-columnFilter>
+      </th>
+
+      <th>
+        <p-columnFilter field="deadline" matchMode="dateInRange" [showMenu]="false">
+          <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+            <p-calendar 
+              [(ngModel)]="rangeDates" 
+              selectionMode="range" placeholder="Enter A Date Range"
+              [readonlyInput]="true"
+              (ngModelChange)="onDateRangeChange($event, dt2)">
+            </p-calendar>
+          </ng-template>
+        </p-columnFilter>
+      </th>
+
+      <th>
+        <p-columnFilter field="status" matchMode="equals" [showMenu]="false">
+          <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+              <p-dropdown [options]="statuses" (onChange)="filter($event.value)" [showClear]="true" placeholder="Select One">
+                <ng-template let-option pTemplate="item">
+                    <p-tag [value]="option" [severity]="getSeverity(option)" />
+                </ng-template>
+              </p-dropdown>
+          </ng-template>
+        </p-columnFilter>
+      </th>
+
+      <th></th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-task>
+    <tr>
+      <td class="fw-medium text-capitalize">
+        <img [src]="'tasks/' + task.image" class="rounded-circle me-2 shadow-sm" alt="User Image">
+        {{ task.title }}
+      </td>
+      <td>{{ task.user.username }}</td>
+      <td>{{ task.deadline | date }}</td>
+      <td><p-tag [value]="task.status" [severity]="getSeverity(task.status)" /></td>
+      <td>
+        <p-confirmPopup />
+        <button type="button" class="btn btn-primary"  (click)="onUpdate(task)"><i class="fa-solid fa-pen"></i></button>
+        <button type="button" class="btn btn-danger ms-2" (click)="onConfirmToDelete($event, task.id)"><i class="fa-solid fa-trash-can"></i></button>
+      </td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="emptymessage"><tr><td colspan="5">No tasks found.</td></tr></ng-template>
+  </p-table>
+</div>
