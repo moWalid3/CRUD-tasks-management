@@ -1,1 +1,22 @@
-<p>login works!</p>
+<h5 class="mb-4 pb-2 mt-5">Login</h5>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <app-control label="Email" [control]="loginForm.controls.email"
+    [validations]="[{errorCode: 'required', msg: 'Email is required.'}, {errorCode: 'pattern', msg: 'Enter a valid email.'}]">
+    <input pInputText type="email" id="Email" formControlName="email" aria-describedby="Email-help">
+  </app-control>
+
+  <app-control label="Password" [control]="loginForm.controls.password"
+    [validations]="[{errorCode: 'required', msg: 'Password is required.'}, {errorCode: 'minlength', msg: 'Password must have a minimum of five characters.'}]">
+    <input pInputText type="password" id="Password" formControlName="password" aria-describedby="Password-help">
+  </app-control>
+
+  <button type="submit" [disabled]="loginForm.invalid" class="btn btn-main-dark mb-1 w-100">Login</button>
+  <a routerLink="/auth/register">Create account?</a>
+</form>
+
+@if (loading()) {
+  <div class="loading-overlay">
+    <p-progressSpinner ariaLabel="loading"/>
+  </div>
+}

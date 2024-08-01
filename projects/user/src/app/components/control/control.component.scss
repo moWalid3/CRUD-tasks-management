@@ -8,3 +8,7 @@ div:has(label) {
     display: inline-block;
   }
 }
+
+::ng-deep input {
+  width: 100% !important;
+}

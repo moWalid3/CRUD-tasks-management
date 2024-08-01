@@ -2,22 +2,22 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ChangeDetectionStrategy, inject, signal, OnInit } from '@angular/core';
 import { InputTextModule } from 'primeng/inputtext';
-import { FloatLabelModule } from 'primeng/floatlabel';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastrService } from 'ngx-toastr';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import { User } from '../../../core/models/auth.model';
+import { ControlComponent } from "../../../components/control/control.component";
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [
-    ReactiveFormsModule, FloatLabelModule, ProgressSpinnerModule,
-    InputTextModule, RouterLink
-
-  ],
+    ReactiveFormsModule, ProgressSpinnerModule,
+    InputTextModule, RouterLink,
+    ControlComponent
+],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

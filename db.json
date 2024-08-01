@@ -90,6 +90,14 @@
       "username": "Ali",
       "status": "active",
       "role": "user"
+    },
+    {
+      "id": "1722535991009",
+      "email": "mohamed@gmail.com",
+      "password": "mohamed",
+      "username": "mohamed",
+      "status": "active",
+      "role": "user"
     }
   ]
 }

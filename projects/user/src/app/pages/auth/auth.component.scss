@@ -15,4 +15,19 @@ section {
       }
     }
   }
+
+  ::ng-deep h5 {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: .2rem;
+      width: 3rem;
+      background-color: #161C28;
+      border-radius: 50rem;
+    }
+  }
 }
