@@ -1,0 +1,35 @@
+{
+  "ENGLISH": "اللغه الانجليزيه",
+  "ARABIC": "اللغه العربيه",
+
+  "tasks": {
+    "title": "العنوان",
+    "user": "المستخدم",
+    "deadlineDate": "تاريخ الانتهاء",
+    "status": "الحالة"
+  },
+
+  "users": {},
+
+  "global": {
+  },
+  
+  "navbar": {
+    "logout": "تسجيل الخروج",
+    "users": "الاعضاء",
+    "allTasks": "كل المهام",
+    "taskFlow": "تدفق المهام"
+  },
+
+  "buttons": {
+    "addTask": "اضافة مهمة"
+  },
+
+  "placeholder": {
+    "searchKeyword": "كلمة البحث",
+    "searchByTitle": "البحث حسب العنوان",
+    "selectUser": "اختر المستخدم",
+    "enterADateRange": "أدخل نطاق التاريخ",
+    "selectStatus": "اختر الحالة"
+  }
+}

@@ -1,6 +1,6 @@
 export interface User {
   id?: string,
-  status: 'Active',
+  status: 'active',
   email: string,
   password: string,
   username: string,

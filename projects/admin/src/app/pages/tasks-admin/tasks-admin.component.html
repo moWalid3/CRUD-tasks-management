@@ -1,4 +1,4 @@
-<button (click)="visible.set(true)" class="btn btn-main-dark fs-5 ms-auto d-block fw-medium px-4 mb-3">Add Task</button>
+<button (click)="visible.set(true)" class="btn btn-main-dark fs-5 ms-auto d-block fw-medium px-4 mb-3">{{ 'buttons.addTask' | translate }}</button>
 
 <app-add-task [(visible)]="visible" [taskNeedUpdate]="taskNeedUpdate()" (closeDialog)="onCloseForm()" />
 

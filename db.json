@@ -4,11 +4,11 @@
       "id": "1722369947787",
       "title": "talk with cusomer",
       "user": {
-        "id": "a2d2",
-        "username": "Khalid",
-        "email": "khalid@gmail.com",
-        "password": "khalid",
-        "status": "Active",
+        "id": "rq2b",
+        "username": "Ahmed",
+        "email": "ahmed@gmail.com",
+        "password": "ahmed",
+        "status": "active",
         "role": "user"
       },
       "deadline": "2024-07-30T21:00:00.000Z",
@@ -24,7 +24,7 @@
         "username": "Khalid",
         "email": "khalid@gmail.com",
         "password": "khalid",
-        "status": "Active",
+        "status": "active",
         "role": "user"
       },
       "deadline": "2024-07-24T21:00:00.000Z",
@@ -40,7 +40,7 @@
         "username": "Khalid",
         "email": "khalid@gmail.com",
         "password": "khalid",
-        "status": "Active",
+        "status": "active",
         "role": "user"
       },
       "deadline": "2024-08-14T21:00:00.000Z",
@@ -55,7 +55,7 @@
       "id": "1",
       "username": "admin",
       "email": "admin@gmail.com",
-      "status": "Active",
+      "status": "active",
       "password": "admin",
       "role": "admin"
     },
@@ -64,7 +64,7 @@
       "username": "Khalid",
       "email": "khalid@gmail.com",
       "password": "khalid",
-      "status": "Active",
+      "status": "active",
       "role": "user"
     },
     {
@@ -72,7 +72,7 @@
       "username": "Ahmed",
       "email": "ahmed@gmail.com",
       "password": "ahmed",
-      "status": "Active",
+      "status": "active",
       "role": "user"
     },
     {
@@ -80,7 +80,15 @@
       "username": "sara",
       "email": "sara@gmail.com",
       "password": "sara",
-      "status": "Active",
+      "status": "active",
+      "role": "user"
+    },
+    {
+      "id": "1722518418274",
+      "email": "ali@gmail.com",
+      "password": "ali123",
+      "username": "Ali",
+      "status": "active",
       "role": "user"
     }
   ]

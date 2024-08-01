@@ -38,15 +38,15 @@ export class LoginComponent implements OnInit{
   onSubmit() {
     this.loading.set(true);
     setTimeout(() => {
+      this.loading.set(false);
 
       if(this.isAdmin()) 
         this.handleSuccessLogin();
       else 
         this.toaster.error("Email or Password wrong ⚠️");
       
-      this.loading.set(false);
 
-    }, 500);
+    }, 1000);
   }
 
   private handleSuccessLogin() {

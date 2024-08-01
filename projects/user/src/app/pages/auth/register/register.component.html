@@ -1,0 +1,76 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h5 class="mb-4 pb-2">Register</h5>
+
+  <div class="text-start">
+    <p-floatLabel>  
+      <input pInputText id="username" type="text" formControlName="username" class="w-100 shadow-none" aria-describedby="username-help" />
+      <label for="username">username</label>
+    </p-floatLabel>
+    @let username = registerForm.controls.username;
+    @if (username.dirty && username.touched) {
+      @if (username.hasError('required')) {
+        <small id="username-help">Username is required.</small>
+      }
+      @if (username.hasError('minlength')) {
+        <small id="username-help">Usernames must have a minimum of three characters.</small>
+      }
+    }
+  </div>
+  
+  <div class="text-start">
+    <p-floatLabel>  
+      <input pInputText id="email" type="email" formControlName="email" class="w-100 shadow-none" aria-describedby="email-help" />
+      <label for="email">Email</label>
+    </p-floatLabel>
+    @let email = registerForm.controls.email;
+    @if (email.dirty && email.touched) {
+      @if (email.hasError('required')) {
+        <small id="email-help">Email is required.</small>
+      }
+      @if (email.hasError('pattern')) {
+        <small id="email-help">Enter a valid email.</small>
+      }
+    }
+  </div>
+  
+  <div class="text-start">
+    <p-floatLabel>
+      <input pInputText id="password" type="password" formControlName="password" class="w-100 shadow-none" aria-describedby="password-help" />
+      <label for="password">Password</label>
+    </p-floatLabel>
+    @let password = registerForm.controls.password;
+    @if (password.dirty && password.touched) {
+      @if (password.hasError('required')) {
+        <small id="password-help">Password is required.</small>
+      }
+      @if (password.hasError('minlength')) {
+        <small id="password-help">Password must have a minimum of five characters.</small>
+      }
+    }
+  </div>
+  
+  <div class="text-start">
+    <p-floatLabel>
+      <input pInputText id="confirmPassword" type="password" formControlName="confirmPassword" class="w-100 shadow-none" aria-describedby="confirmPassword-help" />
+      <label for="confirmPassword">Confirm Password</label>
+    </p-floatLabel>
+    @let confirmPassword = registerForm.controls.confirmPassword;
+    @if (confirmPassword.dirty && confirmPassword.touched) {
+      @if (confirmPassword.hasError('required')) {
+        <small id="confirmPassword-help">Confirm Password is required.</small>
+      }
+      @if (confirmPassword.hasError('matchPassword')) {
+        <small id="confirmPassword-help">Password and Confirm Password must be matching.</small>
+      }
+    }
+  </div>
+
+  <button type="submit" [disabled]="registerForm.invalid" class="btn btn-main-dark mb-1 w-100">Register</button>
+  <a routerLink="/auth/login">Have an account?</a>
+</form>
+
+@if (loading()) {
+  <div class="position-fixed top-0 start-0 bottom-0 end-0 bg-opacity-75 bg-dark d-flex justify-content-center align-items-center">
+    <p-progressSpinner ariaLabel="loading"/>
+  </div>
+}

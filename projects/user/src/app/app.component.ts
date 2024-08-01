@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthService } from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,12 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'user';
+export class AppComponent implements OnInit{
+  private authService = inject(AuthService);
+
+  ngOnInit(): void {
+    if(localStorage.getItem('uID') !== null) {
+      this.authService.userId.set(localStorage.getItem('uID'));
+    }
+  }
 }

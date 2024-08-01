@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NavbarComponent } from "../shared/navbar/navbar.component";
 import { RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-layout',
@@ -10,5 +11,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
+
 
 }

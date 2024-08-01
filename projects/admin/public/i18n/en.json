@@ -1,0 +1,34 @@
+{
+  "ENGLISH": "English",
+  "ARABIC": "Arabic",
+
+  "tasks": {
+    "title": "Title",
+    "user": "User",
+    "deadlineDate": "Deadline Date",
+    "status": "Status"
+  },
+
+  "users": {},
+
+  "global": {},
+
+  "navbar": {
+    "logout": "Logout",
+    "users": "Users",
+    "allTasks": "All Tasks",
+    "taskFlow": "TaskFlow"
+  },
+
+  "buttons": {
+    "addTask": "Add Task"
+  },
+
+  "placeholder": {
+    "searchKeyword": "Search Keyword",
+    "searchByTitle": "Search By Title",
+    "selectUser": "Select User",
+    "enterADateRange": "Enter A Date Range",
+    "selectStatus": "Select Status"
+  }
+}

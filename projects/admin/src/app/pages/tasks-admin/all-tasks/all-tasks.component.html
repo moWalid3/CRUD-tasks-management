@@ -7,29 +7,29 @@
   
   <ng-template pTemplate="caption">
     <div class="bg-white">
-      <input pInputText type="text" (input)="onFilterGlobal($event, dt2 )" placeholder="Search keyword" />
+      <input pInputText type="text" (input)="onFilterGlobal($event, dt2 )" [placeholder]=" 'placeholder.searchKeyword' | translate" />
     </div>
   </ng-template>
 
   <ng-template pTemplate="header">
     <tr>
-      <th style="width:15%">Title</th>
-      <th style="width:15%">User</th>
-      <th style="width:15%">Deadline Date</th>
-      <th style="width:5%">Status</th>
+      <th style="width:15%">{{ 'tasks.title' | translate }}</th>
+      <th style="width:15%">{{ 'tasks.user' | translate }}</th>
+      <th style="width:15%">{{ 'tasks.deadlineDate' | translate }}</th>
+      <th style="width:5%">{{ 'tasks.status' | translate }}</th>
       <th style="width:12%"></th>
     </tr>
 
     <tr>
       <th>
-          <p-columnFilter type="text" field="title" placeholder="Search by title" ariaLabel="Filter Title" />
+          <p-columnFilter type="text" field="title" [placeholder]=" 'placeholder.searchByTitle' | translate" ariaLabel="Filter Title" />
       </th>
 
       <th>
         <p-columnFilter field="user.username" matchMode="equals" [showMenu]="false">
           <ng-template pTemplate="filter" let-value let-filter="filterCallback">
-              <p-dropdown [options]="users()!" (onChange)="filter($event.value)" placeholder="Select User" [showClear]="true"
-                optionLabel="username" optionValue="username"
+              <p-dropdown [options]="users()!" (onChange)="filter($event.value)" [placeholder]=" 'placeholder.selectUser' | translate" 
+                optionLabel="username" optionValue="username" [showClear]="true"
               >
                 <ng-template let-user pTemplate="item">
                   <span>{{ user.username }}</span>
@@ -44,7 +44,7 @@
           <ng-template pTemplate="filter" let-value let-filter="filterCallback">
             <p-calendar 
               [(ngModel)]="rangeDates" 
-              selectionMode="range" placeholder="Enter A Date Range"
+              selectionMode="range" [placeholder]=" 'placeholder.enterADateRange' | translate"
               [readonlyInput]="true"
               (ngModelChange)="onDateRangeChange($event, dt2)">
             </p-calendar>
@@ -55,7 +55,7 @@
       <th>
         <p-columnFilter field="status" matchMode="equals" [showMenu]="false">
           <ng-template pTemplate="filter" let-value let-filter="filterCallback">
-              <p-dropdown [options]="statuses" (onChange)="filter($event.value)" [showClear]="true" placeholder="Select One">
+              <p-dropdown [options]="statuses()" (onChange)="filter($event.value)" [showClear]="true" [placeholder]=" 'placeholder.selectStatus' | translate">
                 <ng-template let-option pTemplate="item">
                     <p-tag [value]="option" [severity]="getSeverity(option)" />
                 </ng-template>

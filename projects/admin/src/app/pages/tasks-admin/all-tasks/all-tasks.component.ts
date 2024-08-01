@@ -17,6 +17,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
 import { FilterService } from 'primeng/api';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-all-tasks',
@@ -32,7 +33,8 @@ import { FilterService } from 'primeng/api';
     CommonModule,
     ConfirmPopupModule,
     CalendarModule,
-    FormsModule
+    FormsModule,
+    TranslateModule
   ],
   providers: [ConfirmationService, MessageService],
   templateUrl: './all-tasks.component.html',
@@ -48,7 +50,7 @@ export class AllTasksComponent {
   taskNeedUpdate = output<Task>();
   tasks = this.tasksService.tasks;
   users = toSignal(this.authService.getUsers());
-  statuses: Status[] = ['In-Progress', 'Completed'];
+  statuses = signal<Status[]>(['In-Progress', 'Completed']);
   rangeDates = signal<Date[] | null>(null);
 
   getSeverity(status: Status) {
