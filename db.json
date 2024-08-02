@@ -224,6 +224,40 @@
       "image": "task5.png",
       "description": "Conduct an onboarding session for new team members. Introduce them to the company's culture, policies, and projects. Provide them with necessary resources and contacts to ensure a smooth transition into their roles.",
       "status": "In-Progress"
+    },
+    {
+      "id": "1722634226241",
+      "title": "Feature Testing",
+      "user": {
+        "id": "1722518418274",
+        "email": "ali@gmail.com",
+        "password": "ali123",
+        "username": "Ali",
+        "status": "in-active",
+        "role": "user",
+        "total_tasks": 0
+      },
+      "deadline": "2024-08-14T21:00:00.000Z",
+      "image": "task3.png",
+      "description": "Perform rigorous testing of the new feature before its release. Identify any bugs or issues and report them to the development team. Ensure the feature meets all quality standards and user requirements.",
+      "status": "In-Progress"
+    },
+    {
+      "id": "1722634272451",
+      "title": "Supplier Meeting",
+      "user": {
+        "id": "1722518418274",
+        "email": "ali@gmail.com",
+        "password": "ali123",
+        "username": "Ali",
+        "status": "in-active",
+        "role": "user",
+        "total_tasks": 0
+      },
+      "deadline": "2024-08-26T21:00:00.000Z",
+      "image": "task7.png",
+      "description": "Meet with suppliers to discuss current contracts, pricing, and delivery schedules. Negotiate terms for future orders and address any issues or concerns. Document the outcomes of the meeting and follow up as needed.",
+      "status": "In-Progress"
     }
   ],
   "auth": [
