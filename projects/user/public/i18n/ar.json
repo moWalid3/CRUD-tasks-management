@@ -6,7 +6,10 @@
     "title": "العنوان",
     "user": "المستخدم",
     "deadlineDate": "تاريخ الانتهاء",
-    "status": "الحالة"
+    "status": "الحالة",
+    "complete": "انهاء",
+    "completed": "مكتمل",
+    "details": "تفاصيل"
   },
 
   "users": {},

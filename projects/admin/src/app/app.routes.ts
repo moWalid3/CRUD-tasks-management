@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { TasksAdminComponent } from './pages/tasks-admin/tasks-admin.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -11,6 +12,7 @@ export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canMatch: [authGuard],
     children: [
       { path: '', redirectTo: '/tasks', pathMatch: 'full' },
       { path: 'tasks', component: TasksAdminComponent },

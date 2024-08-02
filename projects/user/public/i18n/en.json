@@ -6,7 +6,10 @@
     "title": "Title",
     "user": "User",
     "deadlineDate": "Deadline Date",
-    "status": "Status"
+    "status": "Status",
+    "complete": "Complete",
+    "completed": "Completed",
+    "details": "Details"
   },
 
   "users": {},

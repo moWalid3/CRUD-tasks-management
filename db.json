@@ -1,22 +1,6 @@
 {
   "tasks": [
     {
-      "id": "1722369947787",
-      "title": "talk with cusomer",
-      "user": {
-        "id": "rq2b",
-        "username": "Ahmed",
-        "email": "ahmed@gmail.com",
-        "password": "ahmed",
-        "status": "active",
-        "role": "user"
-      },
-      "deadline": "2024-07-30T21:00:00.000Z",
-      "image": "task9.png",
-      "description": "anything",
-      "status": "In-Progress"
-    },
-    {
       "id": "1722370175861",
       "title": "finish project updated",
       "user": {
@@ -33,23 +17,215 @@
       "status": "In-Progress"
     },
     {
-      "id": "1722379555062",
-      "title": "get a new course",
+      "id": "1722550796636",
+      "title": "Morning Meeting",
       "user": {
-        "id": "a2d2",
-        "username": "Khalid",
-        "email": "khalid@gmail.com",
-        "password": "khalid",
+        "id": "1722535991009",
+        "email": "mohamed@gmail.com",
+        "password": "mohamed",
+        "username": "Mohamed",
+        "status": "active",
+        "role": "user"
+      },
+      "deadline": "2024-09-01T21:00:00.000Z",
+      "image": "task20.png",
+      "description": "Attend the daily morning meeting to discuss project updates, team progress, and set priorities for the day. Ensure to bring the latest reports and be prepared to present any relevant updates fast please it's important.",
+      "status": "Completed"
+    },
+    {
+      "id": "1722550839909",
+      "title": "Code Review",
+      "user": {
+        "id": "1722518418274",
+        "email": "ali@gmail.com",
+        "password": "ali123",
+        "username": "Ali",
+        "status": "in-active",
+        "role": "user",
+        "total_tasks": 0
+      },
+      "deadline": "2024-09-09T21:00:00.000Z",
+      "image": "task19.png",
+      "description": "Conduct a thorough review of the code submitted by the development team. Focus on identifying potential bugs, ensuring code quality, adherence to coding standards, and verifying that the functionality meets project requirements.",
+      "status": "In-Progress"
+    },
+    {
+      "id": "1722550914344",
+      "title": "Prepare Presentation",
+      "user": {
+        "id": "1722535991009",
+        "email": "mohamed@gmail.com",
+        "password": "mohamed",
+        "username": "Mohamed",
+        "status": "active",
+        "role": "user"
+      },
+      "deadline": "2024-08-12T21:00:00.000Z",
+      "image": "task18.png",
+      "description": "Create a comprehensive presentation for the upcoming client meeting. Include an overview of the project status, key achievements, challenges faced, and future plans. Make sure to include visuals and data charts to support your points.",
+      "status": "Completed"
+    },
+    {
+      "id": "1722550973735",
+      "title": "Team Lunch",
+      "user": {
+        "id": "1722535991009",
+        "email": "mohamed@gmail.com",
+        "password": "mohamed",
+        "username": "Mohamed",
+        "status": "active",
+        "role": "user"
+      },
+      "deadline": "2024-08-20T21:00:00.000Z",
+      "image": "task17.png",
+      "description": "Organize a team lunch to celebrate the successful completion of the latest project milestone. Choose a convenient location, arrange transportation if necessary, and confirm attendance with all team members.",
+      "status": "Completed"
+    },
+    {
+      "id": "1722551015160",
+      "title": "Budget Analysis",
+      "user": {
+        "id": "1722535991009",
+        "email": "mohamed@gmail.com",
+        "password": "mohamed",
+        "username": "Mohamed",
+        "status": "active",
+        "role": "user"
+      },
+      "deadline": "2024-08-28T21:00:00.000Z",
+      "image": "task16.png",
+      "description": "Analyze the current project budget and compare it against actual expenses. Identify any discrepancies, unexpected costs, and potential areas for cost-saving. Prepare a report summarizing your findings and recommendations.",
+      "status": "Completed"
+    },
+    {
+      "id": "1722551068504",
+      "title": "Client Feedback",
+      "user": {
+        "id": "1722535991009",
+        "email": "mohamed@gmail.com",
+        "password": "mohamed",
+        "username": "Mohamed",
+        "status": "active",
+        "role": "user"
+      },
+      "deadline": "2024-08-12T21:00:00.000Z",
+      "image": "task15.png",
+      "description": "Gather and compile feedback from clients regarding the recent product launch. Categorize feedback into positive, negative, and neutral comments. Analyze the feedback to identify patterns and areas for improvement.",
+      "status": "Completed"
+    },
+    {
+      "id": "1722551110723",
+      "title": "Update Documentation",
+      "user": {
+        "id": "1722605539041",
+        "email": "tate@gmail.com",
+        "password": "tate123",
+        "username": "Tate",
+        "status": "active",
+        "role": "user"
+      },
+      "deadline": "2024-08-11T21:00:00.000Z",
+      "image": "task14.png",
+      "description": "Review and update the project's technical documentation to reflect recent changes. Ensure that all new features, APIs, and configurations are accurately documented. Share the updated documentation with the team.",
+      "status": "In-Progress"
+    },
+    {
+      "id": "1722551153744",
+      "title": "Research Competitors",
+      "user": {
+        "id": "1722535991009",
+        "email": "mohamed@gmail.com",
+        "password": "mohamed",
+        "username": "Mohamed",
+        "status": "active",
+        "role": "user"
+      },
+      "deadline": "2024-08-29T21:00:00.000Z",
+      "image": "task13.png",
+      "description": "Conduct a detailed analysis of competitors in the market. Identify their strengths, weaknesses, and unique selling points. Prepare a report summarizing your findings and suggest strategies to enhance our competitive edge.",
+      "status": "In-Progress"
+    },
+    {
+      "id": "1722551184188",
+      "title": "Networking Event",
+      "user": {
+        "id": "1722535991009",
+        "email": "mohamed@gmail.com",
+        "password": "mohamed",
+        "username": "Mohamed",
+        "status": "active",
+        "role": "user"
+      },
+      "deadline": "2024-08-22T21:00:00.000Z",
+      "image": "task12.png",
+      "description": "Attend the industry networking event to connect with professionals, potential partners, and clients. Prepare your elevator pitch and bring business cards. Engage in meaningful conversations to expand your network.",
+      "status": "In-Progress"
+    },
+    {
+      "id": "1722551272773",
+      "title": "Website Updates",
+      "user": {
+        "id": "1722535991009",
+        "email": "mohamed@gmail.com",
+        "password": "mohamed",
+        "username": "Mohamed",
+        "status": "active",
+        "role": "user"
+      },
+      "deadline": "2024-09-19T21:00:00.000Z",
+      "image": "task11.png",
+      "description": "Implement the latest updates on the company website. Ensure that all new content is correctly formatted, images are optimized, and links are functioning. Test the website on various devices for compatibility.",
+      "status": "In-Progress"
+    },
+    {
+      "id": "1722602861924",
+      "title": "Design Workshop",
+      "user": {
+        "id": "t27b",
+        "username": "Sara",
+        "email": "sara@gmail.com",
+        "password": "sara",
         "status": "active",
         "role": "user"
       },
       "deadline": "2024-08-14T21:00:00.000Z",
-      "image": "task14.png",
-      "description": "anything",
+      "image": "task10.png",
+      "description": "Participate in the design workshop to brainstorm ideas for the upcoming project. Collaborate with designers, developers, and stakeholders to generate creative solutions and establish a cohesive design strategy.",
+      "status": "In-Progress"
+    },
+    {
+      "id": "1722605583357",
+      "title": "Monthly Report",
+      "user": {
+        "id": "1722605539041",
+        "email": "tate@gmail.com",
+        "password": "tate123",
+        "username": "Tate",
+        "status": "active",
+        "role": "user"
+      },
+      "deadline": "2024-08-07T21:00:00.000Z",
+      "image": "task7.png",
+      "description": "Compile the monthly report detailing the team's progress, achievements, and challenges. Include performance metrics, project timelines, and key insights. Distribute the report to management and stakeholders.",
+      "status": "In-Progress"
+    },
+    {
+      "id": "1722631626029",
+      "title": "Onboarding Session",
+      "user": {
+        "id": "1722535991009",
+        "email": "mohamed@gmail.com",
+        "password": "mohamed",
+        "username": "Mohamed",
+        "status": "active",
+        "role": "user"
+      },
+      "deadline": "2024-08-12T21:00:00.000Z",
+      "image": "task5.png",
+      "description": "Conduct an onboarding session for new team members. Introduce them to the company's culture, policies, and projects. Provide them with necessary resources and contacts to ensure a smooth transition into their roles.",
       "status": "In-Progress"
     }
   ],
-  "user": [],
   "auth": [
     {
       "id": "1",
@@ -68,34 +244,35 @@
       "role": "user"
     },
     {
-      "id": "rq2b",
-      "username": "Ahmed",
-      "email": "ahmed@gmail.com",
-      "password": "ahmed",
-      "status": "active",
-      "role": "user"
-    },
-    {
-      "id": "t27b",
-      "username": "sara",
-      "email": "sara@gmail.com",
-      "password": "sara",
-      "status": "active",
-      "role": "user"
-    },
-    {
       "id": "1722518418274",
       "email": "ali@gmail.com",
       "password": "ali123",
       "username": "Ali",
-      "status": "active",
-      "role": "user"
+      "status": "in-active",
+      "role": "user",
+      "total_tasks": 0
     },
     {
       "id": "1722535991009",
       "email": "mohamed@gmail.com",
       "password": "mohamed",
-      "username": "mohamed",
+      "username": "Mohamed",
+      "status": "active",
+      "role": "user"
+    },
+    {
+      "id": "1722605539041",
+      "email": "tate@gmail.com",
+      "password": "tate123",
+      "username": "Tate",
+      "status": "active",
+      "role": "user"
+    },
+    {
+      "id": "1722633836050",
+      "email": "adam@gmail.com",
+      "password": "adam123",
+      "username": "Adam",
       "status": "active",
       "role": "user"
     }

@@ -1,0 +1,26 @@
+::ng-deep .p-datatable .p-datatable-header {
+  border: 0;
+  background-color: white;
+}
+
+th {
+  background-color: #EA580C;
+  color: white;
+  text-align: center;
+}
+td {
+  text-align: center;
+}
+::ng-deep {
+  .p-confirm-popup .p-confirm-popup-footer {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    button {
+      padding: .25rem .5rem;
+    }
+  }
+}
+button:last-of-type {
+  width: 7rem;
+}

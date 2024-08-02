@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ChangeDetectionStrategy, inject, signal, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, inject, signal } from '@angular/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastrService } from 'ngx-toastr';
@@ -9,15 +9,13 @@ import { AuthService } from '../../../core/services/auth.service';
 import { User } from '../../../core/models/auth.model';
 import { ControlComponent } from "../../../components/control/control.component";
 
-
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [
     ReactiveFormsModule, ProgressSpinnerModule,
-    InputTextModule, RouterLink,
-    ControlComponent
-],
+    InputTextModule, RouterLink, ControlComponent
+  ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -51,7 +49,6 @@ export class RegisterComponent {
   onSubmit() {
     this.loading.set(true);
     setTimeout(() =>{
-
     this.loading.set(false)
     
     if(this.users().some(user => user.email === this.registerForm.value.email!)) {
@@ -77,6 +74,8 @@ export class RegisterComponent {
       next: _ => {
         this.toaster.success("Account created successfully!")
         this.router.navigate(['/']);
+        localStorage.setItem('uID', user.id!);
+        this.authService.userId.set(user.id!);
       }
     })
   }

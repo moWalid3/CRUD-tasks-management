@@ -1,1 +1,31 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand bg-main-dark" [dir]="currentLang() === 'ar'? 'rtl' : 'ltr'">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/" class="d-flex align-items-center">
+      <img src="logo.png" alt="Logo">
+      <h5 class="fw-bold mb-0 ms-2">{{ 'navbar.taskFlow' | translate }}</h5>
+    </a>
+    <div class="d-flex justify-content-between w-100">
+      <ul class="navbar-nav ms-5">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tasks" routerLinkActive="bg-dark bg-opacity-25 rounded-2" [routerLinkActiveOptions]="{exact: true}">{{ 'navbar.allTasks' | translate }}</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav d-flex gap-3">
+
+        <div class="select-wrapper border rounded-2">
+          <i class="fas fa-language language-icon"></i>
+          <select class="form-select cursor-pointer language-select" (input)="onSelect($event)" aria-label="Language select" >
+            @if (languageOptions.length) {
+              <option value="en" selected >{{ languageOptions[0].label | translate }}</option>
+              <option value="ar" >{{ languageOptions[1].label | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <li class="nav-item">
+          <a class="nav-link bg-alt rounded-2" (click)="onLogout()" routerLink="/auth/login">{{ 'navbar.logout' | translate }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

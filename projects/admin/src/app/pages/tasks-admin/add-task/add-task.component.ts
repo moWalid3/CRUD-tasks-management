@@ -3,7 +3,6 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { FileRemoveEvent, FileUpload, FileUploadHandlerEvent, FileUploadModule } from 'primeng/fileupload';
-import { NgIf } from '@angular/common';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -13,8 +12,7 @@ import { AuthService } from '../../../core/services/auth.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../../../core/models/auth.model';
-import { ConfirmationService } from 'primeng/api';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
+
 @Component({
   selector: 'app-add-task',
   standalone: true,
@@ -23,14 +21,11 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     InputTextModule,
     DropdownModule,
     FileUploadModule,
-    NgIf,
     InputTextareaModule,
     CalendarModule,
     AddTaskComponent,
     ReactiveFormsModule,
-    ConfirmDialogModule
   ],
-  providers: [ConfirmationService],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss',
 })
@@ -65,7 +60,7 @@ export class AddTaskComponent implements OnChanges{
     const task = this.generateTask();
 
     this.tasksService.createTask(task).subscribe({
-      next: _ => this.toaster.success("Task added successfully 💯.")
+      next: _ => this.toaster.success("Task added successfully.")
     });
 
     this.onClose();
@@ -89,7 +84,7 @@ export class AddTaskComponent implements OnChanges{
     const task = this.generateTask();
 
     this.tasksService.updateTask(task).subscribe({
-      next: _ => this.toaster.success("Task updated successfully ✅.")
+      next: _ => this.toaster.success("Task updated successfully.")
     })
 
     this.onClose();

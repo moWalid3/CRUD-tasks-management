@@ -1,0 +1,22 @@
+<picture>
+  <img [src]="'tasks/' + task()?.image" class="object-fit-cover" [alt]="task()?.title">
+</picture>
+
+<div class="row">
+  <div class="col-8">
+    <h3 class="fw-bold text-main">{{ task()?.title }}</h3>
+    <p class="lh-base pe-4 text-black-50">{{ task()?.description }}</p>
+    <span>Deadline : <span class="badge bg-main-dark">{{ task()?.deadline | date: 'fullDate' }}</span></span>
+  </div>
+  <div class="col-4">
+    <button [disabled]="task()?.status === 'Completed'" (click)="onComplete()"
+      [class]="task()?.status === 'Completed'? 'text-main-dark fw-bold shadow-none border-0 d-block ms-auto' : 'btn btn-success px-5 d-block ms-auto'" 
+    >{{ task()?.status === 'Completed'? 'Completed' : 'Complete' }}</button>
+  </div>
+</div>
+
+@if (loading()) {
+  <div class="loading-overlay">
+    <p-progressSpinner ariaLabel="Loading" />
+  </div>
+}

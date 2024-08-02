@@ -1,13 +1,12 @@
-<div class="">
-  <p-table #dt2 [value]="tasks()!" dataKey="id" [rows]="5" [rowsPerPageOptions]="[5, 10, 20]" [paginator]="true" 
-    [globalFilterFields]="['title', 'user.username', 'deadline', 'status']"
-    [tableStyle]="{ 'min-width': '75rem' }"
-    styleClass="p-datatable-striped p-datatable-gridlines"
-  >
-  
+<p-table #dt1 [value]="tasks()!" dataKey="id" [rows]="5" [rowsPerPageOptions]="[5, 10, 20]" [paginator]="true" 
+  [globalFilterFields]="['title', 'user.username', 'deadline', 'status']"
+  [tableStyle]="{ 'min-width': '75rem' }"
+  styleClass="p-datatable-striped p-datatable-gridlines"
+>
+
   <ng-template pTemplate="caption">
     <div class="bg-white">
-      <input pInputText type="text" (input)="onFilterGlobal($event, dt2 )" [placeholder]=" 'placeholder.searchKeyword' | translate" />
+      <input pInputText type="text" (input)="onFilterGlobal($event, dt1 )" [placeholder]=" 'placeholder.searchKeyword' | translate" />
     </div>
   </ng-template>
 
@@ -22,7 +21,7 @@
 
     <tr>
       <th>
-          <p-columnFilter type="text" field="title" [placeholder]=" 'placeholder.searchByTitle' | translate" ariaLabel="Filter Title" />
+        <p-columnFilter type="text" field="title" [placeholder]=" 'placeholder.searchByTitle' | translate" ariaLabel="Filter Title" />
       </th>
 
       <th>
@@ -46,7 +45,7 @@
               [(ngModel)]="rangeDates" 
               selectionMode="range" [placeholder]=" 'placeholder.enterADateRange' | translate"
               [readonlyInput]="true"
-              (ngModelChange)="onDateRangeChange($event, dt2)">
+              (ngModelChange)="onDateRangeChange($event, dt1)">
             </p-calendar>
           </ng-template>
         </p-columnFilter>
@@ -86,5 +85,4 @@
   </ng-template>
 
   <ng-template pTemplate="emptymessage"><tr><td colspan="5">No tasks found.</td></tr></ng-template>
-  </p-table>
-</div>
+</p-table>

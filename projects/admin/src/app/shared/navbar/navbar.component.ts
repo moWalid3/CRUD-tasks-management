@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { FormsModule } from '@angular/forms';
@@ -20,27 +20,21 @@ export interface ILanguageOption {
 })
 export class NavbarComponent {
   private authService = inject(AuthService);
-  selectedLang = signal<'en' | 'ar'>('en');
-  currentLang = signal<'en' | 'ar'>('en');
-
-  onLogout() {
-    localStorage.removeItem('authId');
-    this.authService.authId.set(undefined);
-  }
-
   private readonly availableLanguages = ['en', 'ar'];
   private readonly translateService = inject(TranslateService);
+  selectedLang = signal<'en' | 'ar'>('en');
+  currentLang = signal<'en' | 'ar'>('en');
   languageOptions: ILanguageOption[] = [];
-
+  
   ngOnInit(): void {
     this.translateService.addLangs(this.availableLanguages);
     this.buildLanguageOptions();
   }
-
+  
   private buildLanguageOptions() {
     const ENGLISH =  this.translateService.get('ENGLISH');
     const ARABIC = this.translateService.get('ARABIC');
-
+    
     forkJoin([ENGLISH, ARABIC]).subscribe(_response => {
       this.languageOptions = [{
         value: this.availableLanguages[0],
@@ -56,5 +50,10 @@ export class NavbarComponent {
     const selectedValue = (event.target as HTMLSelectElement).value;
     this.translateService.use(selectedValue);
     this.currentLang.set(selectedValue as 'ar' | 'en');
+  }
+
+  onLogout() {
+    localStorage.removeItem('authId');
+    this.authService.authId.set(undefined);
   }
 }

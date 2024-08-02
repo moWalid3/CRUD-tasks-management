@@ -2,7 +2,6 @@
   [breakpoints]="{ '35rem' : '90vw' }" [style]="{ width: '35rem'}" (onHide)="onClose()"
 >
   <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-
     <p class="mt-2">
       <input pInputText formControlName="title" id="title" class="w-100 p-2" autocomplete="off" placeholder="Title"/>
     </p>
@@ -12,7 +11,7 @@
     </p>
     
     <p>
-      <p-calendar placeholder="Deadline Date" formControlName="deadline"  [iconDisplay]="'input'" [showIcon]="true"  />
+      <p-calendar [iconDisplay]="'input'" [showIcon]="true" placeholder="Deadline Date" formControlName="deadline"    />
     </p>
     
     <p>
@@ -22,11 +21,11 @@
     </p>
     
     <p>
-      <textarea formControlName="description" rows="4"  pInputTextarea class="w-100" placeholder="Description"></textarea>
+      <textarea pInputTextarea formControlName="description" rows="4"   class="w-100" placeholder="Description"></textarea>
     </p>
 
     <div class="d-flex gap-1">
-      <button  class="btn btn-secondary" type="reset" (click)="onClose()" >Cancel</button>
+      <button class="btn btn-secondary" type="reset" (click)="onClose()" >Cancel</button>
       @if (taskNeedUpdate() !== null) {
         <button [disabled]="updateFormChanges()" (click)="onUpdateTask()" class="btn btn-main-dark flex-grow-1" type="button" >Update</button>
       } @else {

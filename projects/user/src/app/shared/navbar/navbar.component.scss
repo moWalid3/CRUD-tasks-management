@@ -1,0 +1,47 @@
+:host {
+  img {
+    width: 2rem;
+  }
+  a {
+    color: #ffffff;
+  }
+  h5 {
+    width: 6rem;
+    text-align: center;
+  }
+}
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.language-select {
+  width: 9rem;
+  padding: .5rem 2rem .5rem 40px; /* Adjust padding to make room for the icon */
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  appearance: none;
+  background: transparent url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'><path fill='%23ffffff' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>") right .75rem center/8px 10px no-repeat!important;
+}
+
+.language-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(234, 88, 12, 0.25);
+}
+
+.language-select option {
+  color: #333;
+}
+
+.language-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #fff;
+  font-size: 1.2rem;
+}

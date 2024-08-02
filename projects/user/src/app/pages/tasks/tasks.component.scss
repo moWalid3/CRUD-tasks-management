@@ -1,0 +1,15 @@
+:host {
+  picture {
+    display: block;
+    height: 100%;
+    max-height: 15rem;
+    overflow: hidden;
+  }
+  .box {
+    transition: .2s;
+    &:hover {
+      box-shadow: 0px 4px 8px rgba(#EA580C, 0.2) !important;
+      transform: translateY(-.25rem);
+    }
+  }
+}

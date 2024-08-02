@@ -3,17 +3,9 @@ import { LayoutComponent } from './layout/layout.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { AuthComponent } from './pages/auth/auth.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: LayoutComponent,
-    children: [
-      { path: '', redirectTo: 'tasks', pathMatch: 'full' },
-      { path: 'tasks', component: TasksComponent },
-    ],
-  },
-  
   {
     path: 'auth',
     component: AuthComponent,
@@ -31,5 +23,29 @@ export const routes: Routes = [
     ],
   },
 
-  {path: '**', loadComponent: () => import('./shared/notfound/notfound.component').then(m => m.NotfoundComponent), title: 'Notfound'}
+  {
+    path: '',
+    component: LayoutComponent,
+    canMatch: [authGuard],
+    children: [
+      { path: '', redirectTo: 'tasks', pathMatch: 'full' },
+      { path: 'tasks', component: TasksComponent },
+      {
+        path: 'tasks/:id',
+        loadComponent: () =>
+          import('./pages/tasks/task-details/task-details.component').then(
+            (m) => m.TaskDetailsComponent
+          ),
+      },
+    ],
+  },
+
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./shared/notfound/notfound.component').then(
+        (m) => m.NotfoundComponent
+      ),
+    title: 'Notfound',
+  },
 ];

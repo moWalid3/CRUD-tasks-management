@@ -1,4 +1,4 @@
-import { Component, inject, output, signal } from '@angular/core';
+import { Component, inject, OnInit, output, signal } from '@angular/core';
 import { Table, TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { IconFieldModule } from 'primeng/iconfield';
@@ -40,7 +40,7 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './all-tasks.component.html',
   styleUrl: './all-tasks.component.scss',
 })
-export class AllTasksComponent {
+export class AllTasksComponent implements OnInit {
   private confirmationService = inject(ConfirmationService);
   private authService = inject(AuthService);
   private tasksService = inject(TasksService);
@@ -77,7 +77,7 @@ export class AllTasksComponent {
       rejectButtonStyleClass: 'btn btn-secondary',
       accept: () => {
         this.tasksService.deleteTask(taskId).subscribe({
-          next: _ => this.toasterService.success("Task deleted successfully ✅.")
+          next: _ => this.toasterService.success("Task deleted successfully.")
         });
       }
     });

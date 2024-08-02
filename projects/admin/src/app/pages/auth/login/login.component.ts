@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit{
   private admin = toSignal(this.authService.getAdmin());
   private toaster = inject(ToastrService);
   private router = inject(Router);
-
   loading = signal(false);
 
   loginForm = new FormGroup({
@@ -45,12 +44,11 @@ export class LoginComponent implements OnInit{
       else 
         this.toaster.error("Email or Password wrong ⚠️");
       
-
     }, 1000);
   }
 
   private handleSuccessLogin() {
-    this.toaster.success("Success Login ✅");
+    this.toaster.success("Login completed successfully.");
     this.router.navigate(['/']);
     localStorage.setItem('authId', this.admin()?.id!);
     this.authService.authId.set(this.admin()?.id);

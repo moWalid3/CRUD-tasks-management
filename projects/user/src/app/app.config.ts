@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, withViewTransitions } from '@angular/router';
+import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 
@@ -18,7 +18,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes, withViewTransitions()),
+    provideRouter(routes, withViewTransitions(), withComponentInputBinding()),
     provideHttpClient(withFetch(), withInterceptors([baseUrlInterceptor, handleReqInterceptor])),
     provideAnimations(),
     provideToastr(),
